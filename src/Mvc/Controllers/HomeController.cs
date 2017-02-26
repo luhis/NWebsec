@@ -29,5 +29,11 @@ namespace Mvc.Controllers
         {
             return View();
         }
+
+        [TypeFilter(typeof(FlushTestAttribute))]
+        public IActionResult Flush()
+        {
+            return View();
+        }
     }
 }

@@ -1,0 +1,25 @@
+﻿@using Microsoft.AspNetCore.Http
+@using Microsoft.Extensions.Logging;
+@inject ILoggerFactory LoggerFactory
+
+@*@{
+    ViewData["Title"] = "About";
+}
+<h2>@ViewData["Title"].</h2>
+<h3>@ViewData["Message"]</h3>*@
+
+<p>Use this area to flush information.</p>
+@{
+    var _log = LoggerFactory.CreateLogger("FlushView");
+    //_log.LogDebug($"About to flush. Headers sent: {Context.Response.HasStarted}");
+    ////await FlushAsync();
+    //_log.LogDebug($"Flushed. Headers sent: {Context.Response.HasStarted}");
+    _log.LogDebug($"Setting header.");
+    Context.Response.Headers.Add("x-klings","yolo");
+}
+@*<object data="http://nwebsec.com/hello" nws-csp-plugin-type="application/pdf" ></object>
+<embed src="http://nwebsec.com/hello" nws-csp-plugin-type="application/embedpdf"/>*@
+
+<script ></script>
+@*<script nws-csp-add-nonce="true"></script>*@
+

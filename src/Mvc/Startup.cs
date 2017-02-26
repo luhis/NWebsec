@@ -28,6 +28,7 @@ namespace Mvc
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            services.AddLogging();
             services.AddMvc();
         }
 

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.Extensions.Logging;
+@inject ILoggerFactory LoggerFactory
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -15,6 +17,7 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+    <meta name="yolo" content="@String.Join("",Enumerable.Range(1000,256))" />
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -37,6 +40,12 @@
             </div>
         </div>
     </div>
+    @{
+        var _log = LoggerFactory.CreateLogger("LayoutView");
+        _log.LogDebug($"Flushing in layout. Headers sent: {Context.Response.HasStarted}");
+        await FlushAsync();
+        _log.LogDebug($"Flushed in layout. Headers sent: {Context.Response.HasStarted}");
+    }
     <div class="container body-content">
         @RenderBody()
         <hr />
