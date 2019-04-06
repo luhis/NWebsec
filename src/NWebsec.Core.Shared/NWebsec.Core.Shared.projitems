@@ -35,6 +35,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Configuration\ICspSandboxDirectiveConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Configuration\ICspUpgradeDirectiveConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Configuration\IFeaturePolicyConfiguration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Configuration\IFeaturePolicyDirectiveBasicConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Configuration\IHpkpCertConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Configuration\IHpkpConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Configuration\IHpkpPinConfiguration.cs" />
@@ -71,12 +72,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)Middleware\Options\CspDirective.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Middleware\Options\CspOptions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Middleware\Options\CspReportUriDirective.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Middleware\Options\FeaturePolicyOptions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Middleware\Options\FluentCspPluginTypesDirective.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Middleware\Options\FluentCspSandboxDirective.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Middleware\Options\HpkpOptions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Middleware\Options\HpkpOptionsConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Middleware\Options\HstsOptions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Middleware\Options\HstsOptionsConfiguration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Middleware\Options\IFluentFeaturePolicyOptions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Middleware\Options\IFluentCspOptions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Middleware\Options\IFluentCspPluginTypesDirective.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Middleware\Options\IFluentCspReportUriDirective.cs" />

@@ -209,5 +209,15 @@ namespace Owin
             configurer(options);
             return app.Use(typeof(CspMiddleware), options, true); //Last param indicates it's reportOnly.
         }
+
+        public static IAppBuilder UseFeaturePolicy(this IAppBuilder app, Action<IFluentFeaturePolicyOptions> configurer)
+        {
+            if (app == null) throw new ArgumentNullException(nameof(app));
+            if (configurer == null) throw new ArgumentNullException(nameof(configurer));
+
+            var options = new FeaturePolicyOptions();
+            configurer(options);
+            return app.Use(typeof(FeaturePolicyMiddleWare), options); //Last param indicates it's not reportOnly.
+        }
     }
 }

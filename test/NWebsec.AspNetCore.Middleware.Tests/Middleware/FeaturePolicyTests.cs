@@ -19,7 +19,7 @@ namespace NWebsec.AspNetCore.Middleware.Tests.Middleware
         {
             using (var server = new TestServer(new WebHostBuilder().Configure(app =>
             {
-                app.UseFeaturePolicy(config => config.UpgradeInsecureRequests());
+                app.UseFeaturePolicy(config => { });
                 app.Run(async context =>
                 {
                     context.Response.ContentType = "text/plain";

@@ -207,7 +207,7 @@ namespace Microsoft.AspNetCore.Builder
         }
 
         // todo docs
-        public static IApplicationBuilder UseFeaturePolicy(this IApplicationBuilder app, Action<IFluentCspOptions> configurer)
+        public static IApplicationBuilder UseFeaturePolicy(this IApplicationBuilder app, Action<IFluentFeaturePolicyOptions> configurer)
         {
             if (app == null) throw new ArgumentNullException(nameof(app));
             if (configurer == null) throw new ArgumentNullException(nameof(configurer));
