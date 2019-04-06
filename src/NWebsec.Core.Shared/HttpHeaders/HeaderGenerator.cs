@@ -209,6 +209,19 @@ namespace NWebsec.Core.Common.HttpHeaders
             return new HeaderResult(HeaderResult.ResponseAction.Set, headerName, value);
         }
 
+        public HeaderResult CreateFeaturePolicyResult(IFeaturePolicyConfiguration featurePolicyConfig)
+        {
+            var headerValue = featurePolicyConfig.Enabled ? CreateFeaturePolicyHeaderValue(featurePolicyConfig) : null;
+
+            if (!featurePolicyConfig.Enabled || headerValue == null)
+            {
+                return null;
+            }
+
+            return new HeaderResult(HeaderResult.ResponseAction.Set,
+                ( HeaderConstants.ContentSecurityPolicyHeader), headerValue);
+        }
+
         [CanBeNull]
         public HeaderResult CreateCspResult(ICspConfiguration cspConfig, bool reportOnly,
             string builtinReportHandlerUri = null, ICspConfiguration oldCspConfig = null)
@@ -269,7 +282,30 @@ namespace NWebsec.Core.Common.HttpHeaders
             return sb.ToString();
         }
 
-        private void AppendDirective(StringBuilder sb, string directiveName, List<string> sources)
+        [CanBeNull]
+        private string CreateFeaturePolicyHeaderValue(IFeaturePolicyConfiguration config)
+        {
+            var sb = new StringBuilder();
+
+            AppendDirective(sb, "autoplay", GetDirectiveList(config.AutoPlayDirective));
+            AppendDirective(sb, "camera", GetDirectiveList(config.CameraDirective));
+            AppendDirective(sb, "document-domain", GetDirectiveList(config.DocumentDomainDirective));
+            AppendDirective(sb, "encrypted-media", GetDirectiveList(config.EncryptedMediaDirective));
+            AppendDirective(sb, "fullscreen", GetDirectiveList(config.FullScreenDirective));
+            AppendDirective(sb, "geolocation", GetDirectiveList(config.GeolocationDirective));
+            AppendDirective(sb, "microphone", GetDirectiveList(config.MicrophoneDirective));
+            AppendDirective(sb, "midi", GetDirectiveList(config.MidiDirective));
+            AppendDirective(sb, "payment", GetDirectiveList(config.PaymentDirective));
+            AppendDirective(sb, "vr", GetDirectiveList(config.VrDirective));
+
+            if (sb.Length == 0) return null;
+
+            //Get rid of trailing ;
+            sb.Length--;
+            return sb.ToString();
+        }
+
+        private static void AppendDirective(StringBuilder sb, string directiveName, List<string> sources)
         {
             if (sources == null) return;
 
@@ -283,7 +319,7 @@ namespace NWebsec.Core.Common.HttpHeaders
             sb.Append(';');
         }
 
-        private void AppendUpgradeDirective(StringBuilder sb, string directiveName, ICspUpgradeDirectiveConfiguration config)
+        private static void AppendUpgradeDirective(StringBuilder sb, string directiveName, ICspUpgradeDirectiveConfiguration config)
         {
             if (!config.Enabled) return;
 
@@ -291,7 +327,7 @@ namespace NWebsec.Core.Common.HttpHeaders
             sb.Append(';');
         }
 
-        private void AppendMixedContentDirective(StringBuilder sb, string directiveName, ICspMixedContentDirectiveConfiguration config)
+        private static void AppendMixedContentDirective(StringBuilder sb, string directiveName, ICspMixedContentDirectiveConfiguration config)
         {
             if (!config.Enabled) return;
 
@@ -299,7 +335,7 @@ namespace NWebsec.Core.Common.HttpHeaders
             sb.Append(';');
         }
 
-        private List<string> GetDirectiveList(ICspDirectiveConfiguration directive)
+        private static List<string> GetDirectiveList(ICspDirectiveConfiguration directive)
         {
             if (directive == null || !directive.Enabled)
                 return null;

@@ -34,6 +34,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Configuration\ICspReportUriDirectiveConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Configuration\ICspSandboxDirectiveConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Configuration\ICspUpgradeDirectiveConfiguration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Configuration\IFeaturePolicyConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Configuration\IHpkpCertConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Configuration\IHpkpConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Configuration\IHpkpPinConfiguration.cs" />

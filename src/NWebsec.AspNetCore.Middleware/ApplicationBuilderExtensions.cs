@@ -206,6 +206,17 @@ namespace Microsoft.AspNetCore.Builder
             return app.UseMiddleware<CspMiddleware>(options, false); //Last param indicates it's not reportOnly.
         }
 
+        // todo docs
+        public static IApplicationBuilder UseFeaturePolicy(this IApplicationBuilder app, Action<IFluentCspOptions> configurer)
+        {
+            if (app == null) throw new ArgumentNullException(nameof(app));
+            if (configurer == null) throw new ArgumentNullException(nameof(configurer));
+
+            var options = new FeaturePolicyOptions();
+            configurer(options);
+            return app.UseMiddleware<FeaturePolicyMiddleware>(options, false); //Last param indicates it's not reportOnly.
+        }
+
         /// <summary>
         ///     Adds a middleware to the ASP.NET Core pipeline that sets the Content-Security-Policy-Report-Only header.
         /// </summary>

@@ -30,5 +30,7 @@ namespace NWebsec.Core.Common.HttpHeaders
             string builtinReportHandlerUri = null, ICspConfiguration oldCspConfig = null);
 
         HeaderResult CreateHpkpResult(IHpkpConfiguration hpkpConfig, bool reportOnly);
+
+        HeaderResult CreateFeaturePolicyResult(IFeaturePolicyConfiguration featurePolicyConfig);
     }
 }
