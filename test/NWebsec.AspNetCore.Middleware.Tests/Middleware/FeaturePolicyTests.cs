@@ -15,7 +15,7 @@ namespace NWebsec.AspNetCore.Middleware.Tests.Middleware
         [Theory]
         [InlineData("http://localhost/")]
         [InlineData("http://localhost/BasePath/")]
-        public async Task Csp_UpgradeEnabledAndUpgradableRequest_Redirects(string basePath)
+        public async Task FeaturePolicyWorks(string basePath)
         {
             using (var server = new TestServer(new WebHostBuilder().Configure(app =>
             {
