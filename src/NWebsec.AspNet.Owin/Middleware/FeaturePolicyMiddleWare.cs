@@ -11,13 +11,13 @@ namespace NWebsec.Owin.Middleware
 {
     using AppFunc = Func<IDictionary<string, object>, Task>;
 
-    public class FeaturePolicyMiddleWare
+    public class FeaturePolicyMiddleware
     {
         private readonly IFeaturePolicyConfiguration _config;
         private readonly HeaderResult _headerResult;
         private readonly AppFunc _next;
 
-        public FeaturePolicyMiddleWare(AppFunc next, IFeaturePolicyConfiguration options)
+        public FeaturePolicyMiddleware(AppFunc next, IFeaturePolicyConfiguration options, bool reportOnly)
         {
             _next = next;
             _config = options;

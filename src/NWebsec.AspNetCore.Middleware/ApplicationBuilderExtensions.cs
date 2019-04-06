@@ -214,7 +214,7 @@ namespace Microsoft.AspNetCore.Builder
 
             var options = new FeaturePolicyOptions();
             configurer(options);
-            return app.UseMiddleware<FeaturePolicyMiddleware>(options, false); //Last param indicates it's not reportOnly.
+            return app.UseMiddleware<FeaturePolicyMiddleware>(options); //Last param indicates it's not reportOnly.
         }
 
         /// <summary>

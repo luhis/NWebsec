@@ -217,7 +217,7 @@ namespace Owin
 
             var options = new FeaturePolicyOptions();
             configurer(options);
-            return app.Use(typeof(FeaturePolicyMiddleWare), options); //Last param indicates it's not reportOnly.
+            return app.Use(typeof(FeaturePolicyMiddleware), options, false); //Last param indicates it's not reportOnly.
         }
     }
 }
