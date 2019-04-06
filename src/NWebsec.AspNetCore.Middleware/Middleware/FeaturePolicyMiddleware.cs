@@ -23,7 +23,7 @@ namespace NWebsec.AspNetCore.Middleware.Middleware
 
         public async Task Invoke(HttpContext context)
         {
-            SetCspHeaders(context);
+            this.SetFeaturePolicyHeaders(context);
 
             if (_next != null)
             {
@@ -32,7 +32,7 @@ namespace NWebsec.AspNetCore.Middleware.Middleware
 
         }
 
-        internal void SetCspHeaders(HttpContext context)
+        internal void SetFeaturePolicyHeaders(HttpContext context)
         {
             {
                 context.GetNWebsecContext().FeaturePolicy = _config;

@@ -15,6 +15,7 @@ namespace NWebsec.Core.Common.HttpHeaders
         public static readonly string HpkpHeader = "Public-Key-Pins";
         public static readonly string HpkpReportOnlyHeader = "Public-Key-Pins-Report-Only";
         public static readonly string ReferrerPolicyHeader = "Referrer-Policy";
+        public static readonly string FeaturePolicyHeader = "Feature-Policy";
 
         public static readonly string[] CspSourceList =
         {

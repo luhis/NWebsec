@@ -19,7 +19,7 @@ namespace NWebsec.AspNetCore.Middleware.Tests.Middleware
         {
             using (var server = new TestServer(new WebHostBuilder().Configure(app =>
             {
-                app.UseFeaturePolicy(config => { });
+                app.UseFeaturePolicy(config => config.AutoPlay(a => a.NoneSrc = true));
                 app.Run(async context =>
                 {
                     context.Response.ContentType = "text/plain";
@@ -31,12 +31,9 @@ namespace NWebsec.AspNetCore.Middleware.Tests.Middleware
 
                 using (var httpClient = server.CreateClient())
                 {
-                    httpClient.DefaultRequestHeaders.Add("Upgrade-Insecure-Requests", "1");
                     var response = await httpClient.GetAsync("http://localhost/BasePath/RequestPath/");
                     //TODO check path settings in OWIN
-                    Assert.Equal(HttpStatusCode.RedirectKeepVerb, response.StatusCode);
-                    Assert.Equal("Upgrade-Insecure-Requests", response.Headers.Vary.Single());
-                    Assert.Equal("https://localhost/BasePath/RequestPath/", response.Headers.Location.AbsoluteUri);
+                    Assert.Equal("autoplay 'none'", response.Headers.GetValues("Feature-Policy").First());
                 }
             }
         }

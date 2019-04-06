@@ -219,7 +219,7 @@ namespace NWebsec.Core.Common.HttpHeaders
             }
 
             return new HeaderResult(HeaderResult.ResponseAction.Set,
-                ( HeaderConstants.ContentSecurityPolicyHeader), headerValue);
+                ( HeaderConstants.FeaturePolicyHeader), headerValue);
         }
 
         [CanBeNull]
