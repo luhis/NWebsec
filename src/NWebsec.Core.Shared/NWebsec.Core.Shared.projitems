@@ -23,6 +23,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Configuration\CspSandboxDirectiveConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Configuration\CspUpgradeDirectiveConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Configuration\FeaturePolicyConfiguration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Configuration\FeaturePolicyDirectiveConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Configuration\HpkpConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Configuration\HstsConfiguration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Configuration\ICspConfiguration.cs" />

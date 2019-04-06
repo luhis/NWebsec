@@ -283,7 +283,7 @@ namespace NWebsec.Core.Common.HttpHeaders
         }
 
         [CanBeNull]
-        private string CreateFeaturePolicyHeaderValue(IFeaturePolicyConfiguration config)
+        private static string CreateFeaturePolicyHeaderValue(IFeaturePolicyConfiguration config)
         {
             var sb = new StringBuilder();
 
@@ -303,6 +303,31 @@ namespace NWebsec.Core.Common.HttpHeaders
             //Get rid of trailing ;
             sb.Length--;
             return sb.ToString();
+        }
+
+        private static List<string> GetDirectiveList(IFeaturePolicyDirectiveBasicConfiguration directive)
+        {
+            if (directive == null || !directive.Enabled)
+                return null;
+
+            var sources = new List<string>();
+
+            if (directive.NoneSrc)
+            {
+                sources.Add("'none'");
+            }
+
+            if (directive.SelfSrc)
+            {
+                sources.Add("'self'");
+            }
+
+            if (directive.CustomSources != null)
+            {
+                sources.AddRange(directive.CustomSources);
+            }
+
+            return sources.Count > 0 ? sources : null;
         }
 
         private static void AppendDirective(StringBuilder sb, string directiveName, List<string> sources)

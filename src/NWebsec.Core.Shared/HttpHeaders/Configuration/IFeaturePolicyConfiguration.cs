@@ -4,24 +4,24 @@
     {
         bool Enabled { get; }
 
-        ICspDirectiveConfiguration AutoPlayDirective { get; }
+        IFeaturePolicyDirectiveBasicConfiguration AutoPlayDirective { get; }
 
-        ICspDirectiveConfiguration CameraDirective { get; }
+        IFeaturePolicyDirectiveBasicConfiguration CameraDirective { get; }
 
-        ICspDirectiveConfiguration DocumentDomainDirective { get; }
+        IFeaturePolicyDirectiveBasicConfiguration DocumentDomainDirective { get; }
 
-        ICspDirectiveConfiguration EncryptedMediaDirective { get; }
+        IFeaturePolicyDirectiveBasicConfiguration EncryptedMediaDirective { get; }
 
-        ICspDirectiveConfiguration FullScreenDirective { get; }
+        IFeaturePolicyDirectiveBasicConfiguration FullScreenDirective { get; }
 
-        ICspDirectiveConfiguration GeolocationDirective { get; }
+        IFeaturePolicyDirectiveBasicConfiguration GeolocationDirective { get; }
 
-        ICspDirectiveConfiguration MicrophoneDirective { get; }
+        IFeaturePolicyDirectiveBasicConfiguration MicrophoneDirective { get; }
 
-        ICspDirectiveConfiguration MidiDirective { get; }
+        IFeaturePolicyDirectiveBasicConfiguration MidiDirective { get; }
 
-        ICspDirectiveConfiguration PaymentDirective { get; }
+        IFeaturePolicyDirectiveBasicConfiguration PaymentDirective { get; }
 
-        ICspDirectiveConfiguration VrDirective { get; }
+        IFeaturePolicyDirectiveBasicConfiguration VrDirective { get; }
     }
 }
