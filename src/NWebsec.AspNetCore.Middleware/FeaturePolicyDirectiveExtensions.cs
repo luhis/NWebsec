@@ -23,12 +23,11 @@ namespace Microsoft.AspNetCore.Builder
             return directive;
         }
 
-        public static T All<T>(this T directive) where T : class, IFeaturePolicyDirectiveBasicConfiguration
+        public static void All<T>(this T directive) where T : class, IFeaturePolicyDirectiveBasicConfiguration
         {
             if (directive == null) throw new ArgumentNullException(nameof(directive));
 
             directive.All = true;
-            return directive;
         }
 
         public static T CustomSources<T>(this T directive, params string[] sources) where T : class, IFeaturePolicyDirectiveBasicConfiguration
@@ -42,6 +41,7 @@ namespace Microsoft.AspNetCore.Builder
                     .Select(s => CspUriSource.Parse(s).ToString())
                     .ToArray();
             }
+            ////  todo new exception
             catch (InvalidCspSourceException e)
             {
                 throw new ArgumentException("Invalid source. Details: " + e.Message, nameof(sources), e);

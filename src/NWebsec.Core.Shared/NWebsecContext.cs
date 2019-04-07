@@ -19,8 +19,7 @@ namespace NWebsec.Core.Common
         public ICspConfiguration Csp { get; set; }
         public ICspConfiguration CspReportOnly { get; set; }
         public IFeaturePolicyConfiguration FeaturePolicy { get; set; } 
-
-         public ConfigurationOverrides ConfigOverrides { get; set; }
+        public ConfigurationOverrides ConfigOverrides { get; set; }
     }
 
     public class ConfigurationOverrides

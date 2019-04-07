@@ -206,7 +206,12 @@ namespace Microsoft.AspNetCore.Builder
             return app.UseMiddleware<CspMiddleware>(options, false); //Last param indicates it's not reportOnly.
         }
 
-        // todo docs
+        /// <summary>
+        ///     Adds a middleware to the ASP.NET Core pipeline that sets the Feature-Policy header.
+        /// </summary>
+        /// <param name="app">The <see cref="IApplicationBuilder" /> to which the middleware is added.</param>
+        /// <param name="configurer">An <see cref="Action" /> that configures the options for the middleware.</param>
+        /// <returns>The <see cref="IApplicationBuilder" /> supplied in the app parameter.</returns>
         public static IApplicationBuilder UseFeaturePolicy(this IApplicationBuilder app, Action<IFluentFeaturePolicyOptions> configurer)
         {
             if (app == null) throw new ArgumentNullException(nameof(app));
