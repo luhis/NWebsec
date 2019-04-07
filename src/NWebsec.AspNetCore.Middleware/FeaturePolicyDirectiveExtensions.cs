@@ -23,11 +23,11 @@ namespace Microsoft.AspNetCore.Builder
             return directive;
         }
 
-        public static T Enabled<T>(this T directive) where T : class, IFeaturePolicyDirectiveBasicConfiguration
+        public static T All<T>(this T directive) where T : class, IFeaturePolicyDirectiveBasicConfiguration
         {
             if (directive == null) throw new ArgumentNullException(nameof(directive));
 
-            directive.Enabled = true;
+            directive.All = true;
             return directive;
         }
 

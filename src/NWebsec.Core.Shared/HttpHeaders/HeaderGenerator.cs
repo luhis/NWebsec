@@ -312,6 +312,11 @@ namespace NWebsec.Core.Common.HttpHeaders
 
             var sources = new List<string>();
 
+            if (directive.All)
+            {
+                sources.Add("*");
+            }
+
             if (directive.NoneSrc)
             {
                 sources.Add("'none'");

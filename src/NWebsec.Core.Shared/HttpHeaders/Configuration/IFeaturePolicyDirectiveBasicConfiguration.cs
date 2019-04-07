@@ -21,6 +21,13 @@ namespace NWebsec.Core.Common.HttpHeaders.Configuration
         ///     made.
         /// </summary>
         [EditorBrowsable(EditorBrowsableState.Never)]
+        bool All { get; set; }
+
+        /// <summary>
+        ///     Infrastructure. Not intended to be used by your code directly. An attempt to hide this from Intellisense has been
+        ///     made.
+        /// </summary>
+        [EditorBrowsable(EditorBrowsableState.Never)]
         bool NoneSrc { get; set; }
 
         /// <summary>
