@@ -535,7 +535,7 @@ namespace NWebsec.Annotations
     /// for MVC views within a class or a method.
     /// </summary>
     [Conditional("DEBUG"), AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-    internal sealed class AspMvcSupressViewErrorAttribute : Attribute { }
+    internal sealed class AspMvcSuppressViewErrorAttribute : Attribute { }
 
     /// <summary>
     /// ASP.NET MVC attribute. Indicates that a parameter is an MVC display template.

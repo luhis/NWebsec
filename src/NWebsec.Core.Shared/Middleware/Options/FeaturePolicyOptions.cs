@@ -22,5 +22,59 @@ namespace NWebsec.Core.Common.Middleware.Options
             configurer(AutoPlayDirective);
             return this;
         }
+
+        public IFluentFeaturePolicyOptions Camera(Action<IFeaturePolicyDirectiveBasicConfiguration> configurer)
+        {
+            configurer(CameraDirective);
+            return this;
+        }
+
+        public IFluentFeaturePolicyOptions DocumentDomain(Action<IFeaturePolicyDirectiveBasicConfiguration> configurer)
+        {
+            configurer(DocumentDomainDirective);
+            return this;
+        }
+
+        public IFluentFeaturePolicyOptions EncryptedMedia(Action<IFeaturePolicyDirectiveBasicConfiguration> configurer)
+        {
+            configurer(EncryptedMediaDirective);
+            return this;
+        }
+
+        public IFluentFeaturePolicyOptions FullScreen(Action<IFeaturePolicyDirectiveBasicConfiguration> configurer)
+        {
+            configurer(FullScreenDirective);
+            return this;
+        }
+
+        public IFluentFeaturePolicyOptions Geolocation(Action<IFeaturePolicyDirectiveBasicConfiguration> configurer)
+        {
+            configurer(GeolocationDirective);
+            return this;
+        }
+
+        public IFluentFeaturePolicyOptions Microphone(Action<IFeaturePolicyDirectiveBasicConfiguration> configurer)
+        {
+            configurer(MicrophoneDirective);
+            return this;
+        }
+
+        public IFluentFeaturePolicyOptions Midi(Action<IFeaturePolicyDirectiveBasicConfiguration> configurer)
+        {
+            configurer(MidiDirective);
+            return this;
+        }
+
+        public IFluentFeaturePolicyOptions Payment(Action<IFeaturePolicyDirectiveBasicConfiguration> configurer)
+        {
+            configurer(PaymentDirective);
+            return this;
+        }
+
+        public IFluentFeaturePolicyOptions Vr(Action<IFeaturePolicyDirectiveBasicConfiguration> configurer)
+        {
+            configurer(VrDirective);
+            return this;
+        }
     }
 }
