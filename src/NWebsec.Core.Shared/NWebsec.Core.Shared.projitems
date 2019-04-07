@@ -64,6 +64,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Csp\CspHashSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Csp\CspUriSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\Csp\InvalidCspSourceException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\FeaturePolicy\InvalidCspSourceException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\HeaderConstants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\HeaderGenerator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)HttpHeaders\HeaderResult.cs" />
