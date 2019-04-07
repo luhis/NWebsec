@@ -2,6 +2,7 @@ using System;
 using System.Linq;
 using NWebsec.Core.Common.HttpHeaders.Configuration;
 using NWebsec.Core.Common.HttpHeaders.Csp;
+using NWebsec.Core.Common.HttpHeaders.FeaturePolicy;
 
 // ReSharper disable once CheckNamespace
 namespace Microsoft.AspNetCore.Builder
@@ -41,8 +42,7 @@ namespace Microsoft.AspNetCore.Builder
                     .Select(s => CspUriSource.Parse(s).ToString())
                     .ToArray();
             }
-            ////  todo new exception
-            catch (InvalidCspSourceException e)
+            catch (InvalidFeaturePolicySourceException e)
             {
                 throw new ArgumentException("Invalid source. Details: " + e.Message, nameof(sources), e);
             }
