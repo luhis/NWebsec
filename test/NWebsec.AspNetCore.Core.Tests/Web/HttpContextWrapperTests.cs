@@ -140,4 +140,3 @@ namespace NWebsec.AspNetCore.Core.Tests.Web
         }
     }
 }
-
